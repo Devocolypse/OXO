@@ -9,6 +9,11 @@ class Board
   def update(turn)
     position, symbol = turn
 
-    @state.map! { |pos| pos == position ? symbol : pos }
+    i = @state.find_index(position)
+
+    return unless i.is_a? Integer
+
+    @state[i] = symbol
+    @state
   end
 end
