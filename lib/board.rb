@@ -1,3 +1,4 @@
+# Board class
 class Board
   attr_reader :state
 
