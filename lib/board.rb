@@ -1,7 +1,13 @@
 class Board
-  attr_writer :board_state
+  attr_reader :state
 
   def initialize
-    @board_state = (1..9).to_a
+    @state = (1..9).to_a
+  end
+
+  def update(turn)
+    position, symbol = turn
+
+    @state.map! { |pos| pos == position ? symbol : pos }
   end
 end
