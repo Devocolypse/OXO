@@ -6,7 +6,7 @@ class Player
     @symbol = symbol
   end
 
-  def play_at(position)
-    [position, @symbol]
+  def play_at(row, col)
+    [row, col, @symbol]
   end
 end
