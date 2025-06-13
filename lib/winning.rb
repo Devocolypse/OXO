@@ -7,9 +7,10 @@ module Winning
     while i < BOARD_SIZE
       break unless board[row][i] == symbol
 
-      puts "Player #{symbol} wins!" if i == BOARD_SIZE - 1
+      winning = (i == BOARD_SIZE - 1)
       i += 1
     end
+    winning
   end
 
   def check_row(col, board, symbol)
@@ -17,9 +18,10 @@ module Winning
     while i < BOARD_SIZE
       break unless board[i][col] == symbol
 
-      puts "Player #{symbol} wins!" if i == BOARD_SIZE - 1
+      winning = (i == BOARD_SIZE - 1)
       i += 1
     end
+    winning
   end
 
   def check_diag(board, symbol)
@@ -27,9 +29,10 @@ module Winning
     while i < BOARD_SIZE
       break unless board[i][i] == symbol
 
-      puts "Player #{symbol} wins!" if i == BOARD_SIZE - 1
+      winning = (i == BOARD_SIZE - 1)
       i += 1
     end
+    winning
   end
 
   def check_anti_diag(board, symbol)
@@ -38,8 +41,9 @@ module Winning
       anti_i = (BOARD_SIZE - 1) - i
       break unless board[i][anti_i] == symbol
 
-      puts "Player #{symbol} wins!" if i == BOARD_SIZE - 1
+      winning = (i == BOARD_SIZE - 1)
       i += 1
     end
+    winning
   end
 end

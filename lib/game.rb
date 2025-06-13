@@ -14,8 +14,9 @@ class Game
     @winner = nil
   end
 
-  def check_winner(row, col, symbol)
+  def check_winner(row, col, player)
     board = @board.state
+    symbol = player.symbol
     check_col(row, board, symbol)
     check_row(col, board, symbol)
     check_diag(board, symbol) if row == col
