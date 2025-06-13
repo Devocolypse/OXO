@@ -17,9 +17,16 @@ class Game
   def check_winner(row, col, player)
     board = @board.state
     symbol = player.symbol
-    check_col(row, board, symbol)
-    check_row(col, board, symbol)
-    check_diag(board, symbol) if row == col
-    check_anti_diag(board, symbol) if row + col == 2
+
+    @winner = player if winnable?(row, col, board, symbol)
+  end
+
+  private
+
+  def winnable?(row, col, board, symbol)
+    check_col(row, board, symbol) ||
+      check_row(col, board, symbol) ||
+      check_diag(board, symbol) ||
+      check_anti_diag(board, symbol)
   end
 end
