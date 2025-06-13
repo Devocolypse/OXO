@@ -14,6 +14,11 @@ class Game
     @winner = nil
   end
 
+  def ask
+    puts "Where would you like to play?"
+    @board.render
+  end
+
   def check_winner(row, col, player)
     board = @board.state
     symbol = player.symbol
