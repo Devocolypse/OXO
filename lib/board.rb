@@ -11,7 +11,6 @@ class Board
     return unless @state[row][col].is_a? Integer
 
     @state[row][col] = symbol
-    @move_count += 1
     @state
   end
 end

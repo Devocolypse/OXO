@@ -10,6 +10,7 @@ class Game
     @player_x = Player.new("X")
     @player_o = Player.new("O")
     @board = Board.new
+    @move_count = 0
   end
 
   def check_winner(row, col, symbol)
