@@ -8,7 +8,7 @@ class Board
   end
 
   def render
-    d = @state.flatten.map { |pos| pos + 1 }
+    d = @state.flatten.map { |pos| pos.is_a?(Integer) ? pos + 1 : pos }
 
     puts <<-BOARD
       #{d[0]} | #{d[1]} | #{d[2]}
