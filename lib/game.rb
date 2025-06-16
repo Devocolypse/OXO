@@ -16,6 +16,26 @@ class Game
     @winner = nil
   end
 
+  def run
+    # main game loop
+    until game.winner
+      # display the board
+      board.render
+      # ask the current_player for their move
+      choice = game.ask
+      # validate the move
+      #   - must be an integer
+      #   - must not be occupied
+      # increment move_count by one
+      # check for a winner when a min of 5 moves have been made
+      # if a winner has been found, update game.winner and congratulate them!
+      # if 9 moves have been made but there is no winner, the game is a draw
+      # else, change current_player - loop continues
+    end
+  end
+
+  private
+
   def ask
     @board.render
     begin
@@ -35,8 +55,6 @@ class Game
 
     @winner = player if winnable?(row, col, board, symbol)
   end
-
-  private
 
   def winnable?(row, col, board, symbol)
     check_col(row, board, symbol) ||
