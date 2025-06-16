@@ -1,9 +1,10 @@
 # Board class
 class Board
-  attr_reader :state
+  attr_reader :state, :cords
 
   def initialize
     @state = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+    @cords = generate_cords
     @move_count = 0
   end
 
@@ -24,5 +25,17 @@ class Board
 
     @state[row][col] = symbol
     @state
+  end
+
+  private
+
+  def generate_cords
+    h = {}
+    @state.each_with_index do |row, row_i|
+      row.each_with_index do |col, col_i|
+        h[col + 1] = [row_i, col_i]
+      end
+    end
+    h
   end
 end
