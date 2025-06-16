@@ -17,8 +17,15 @@ class Game
 
   def ask
     @board.render
-    puts "Where would you like to play?"
-    gets.chomp.to_i
+    begin
+      puts "\nEnter the number of the position you'd like to play at>>"
+      input = gets.chomp.match(/\d+/)[0]
+    rescue StandardError => e
+      puts "Erroneous input! Try again..."
+      puts "\tError: #{e}"
+      retry
+    end
+    input.to_i
   end
 
   def check_winner(row, col, player)
