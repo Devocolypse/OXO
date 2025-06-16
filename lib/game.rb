@@ -10,6 +10,7 @@ class Game
   def initialize
     @player_x = Player.new("X")
     @player_o = Player.new("O")
+    @current_player = @player_x
     @board = Board.new
     @move_count = 0
     @winner = nil
@@ -42,5 +43,9 @@ class Game
       check_row(col, board, symbol) ||
       check_diag(board, symbol) ||
       check_anti_diag(board, symbol)
+  end
+
+  def opposite_player
+    @current_player == @player_x ? @player_o : @player_x
   end
 end

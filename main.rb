@@ -2,7 +2,6 @@ require_relative "lib/game"
 
 game = Game.new
 board = game.board
-current_player = game.player_x
 
 # main game loop
 until game.winner
