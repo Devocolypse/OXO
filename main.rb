@@ -9,6 +9,7 @@ until game.winner
   # display the board
   board.render
   # ask the current_player for their move
+  choice = game.ask
   # validate the move
   #   - must be an integer
   #   - must not be occupied
