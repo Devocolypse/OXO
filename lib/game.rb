@@ -34,19 +34,21 @@ class Game
     end
   end
 
-  private
-
-  def ask
-    @board.render
+  def validate_integer
     begin
-      puts "\nEnter the number of the position you'd like to play at>>"
-      input = gets.chomp.match(/\d+/)[0]
+      input = gets.chomp.match(/\b[1-9]\b/)[0]
     rescue StandardError => e
-      puts "Erroneous input! Try again..."
+      puts "Must be a number between 1 and 9."
       puts "\tError: #{e}"
       retry
     end
     input.to_i
+  end
+
+  def ask
+    @board.render
+    puts "\nEnter the number of the position you'd like to play at>>"
+    validate_integer
   end
 
   def check_winner(row, col, player)
