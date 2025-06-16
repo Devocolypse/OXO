@@ -5,6 +5,7 @@ require_relative "winning"
 # Game class
 class Game
   include Winning
+  attr_reader :player_x, :player_o, :board, :move_count, :winner
 
   def initialize
     @player_x = Player.new("X")
