@@ -15,8 +15,9 @@ class Game
   end
 
   def ask
-    puts "Where would you like to play?"
     @board.render
+    puts "Where would you like to play?"
+    gets.chomp.to_i
   end
 
   def check_winner(row, col, player)
