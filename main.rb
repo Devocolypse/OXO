@@ -1,11 +1,13 @@
 require_relative "lib/game"
 
 game = Game.new
+board = game.board
 current_player = game.player_x
 
 # main game loop
 until game.winner
   # display the board
+  board.render
   # ask the current_player for their move
   # validate the move
   #   - must be an integer
