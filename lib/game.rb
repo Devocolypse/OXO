@@ -35,7 +35,10 @@ class Game
     win_msg
   end
 
+  private
+
   def win_msg
+    @board.render
     if @winner
       puts "Player #{@winner.symbol} wins!"
     else
@@ -74,7 +77,7 @@ class Game
   end
 
   def ask
-    puts "\nEnter the number of the position you'd like to play at>>"
+    puts "\nEnter a number, Player #{@current_player.symbol}>>"
     fetch_valid_choice
   end
 
