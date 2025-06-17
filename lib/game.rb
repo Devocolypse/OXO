@@ -30,6 +30,7 @@ class Game
       # check for a winner when a min of 5 moves have been made
       check_winner(row, col, @current_player) if @move_count >= 5
       # else, change current_player - loop continues
+      @current_player = opposite_player
     end
     win_msg
   end
