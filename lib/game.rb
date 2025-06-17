@@ -34,6 +34,14 @@ class Game
     end
   end
 
+  def fetch_valid_positions
+    positions = []
+    @board.state.map do |row|
+      row.map { |col| positions.push(col + 1) if col.is_a? Integer }
+    end
+    positions
+  end
+
   def validate_integer
     begin
       input = gets.chomp.match(/\b[1-9]\b/)[0]
@@ -43,6 +51,10 @@ class Game
       retry
     end
     input.to_i
+  end
+
+  def validate_pos(choice)
+    row, col = @board.cords[choice]
   end
 
   def ask
