@@ -18,7 +18,7 @@ class Game
 
   def run
     # main game loop
-    until game.winner || @move_count == 9
+    until @winner || @move_count == 9
       # display the board
       @board.render
       # ask the current_player for their move
@@ -29,9 +29,16 @@ class Game
       @move_count += 1
       # check for a winner when a min of 5 moves have been made
       check_winner(row, col, @current_player) if @move_count >= 5
-      # if a winner has been found, update game.winner and congratulate them!
-      # if 9 moves have been made but there is no winner, the game is a draw
       # else, change current_player - loop continues
+    end
+    win_msg
+  end
+
+  def win_msg
+    if @winner
+      puts "Player #{@winner.symbol} wins!"
+    else
+      puts "Cats game!"
     end
   end
 
