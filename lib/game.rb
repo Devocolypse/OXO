@@ -34,7 +34,7 @@ class Game
     end
   end
 
-  def fetch_valid_positions
+  def fetch_valid_pos
     positions = []
     @board.state.map do |row|
       row.map { |col| positions.push(col + 1) if col.is_a? Integer }
@@ -42,25 +42,32 @@ class Game
     positions
   end
 
-  def validate_integer
+  def fetch_valid_int
     begin
       input = gets.chomp.match(/\b[1-9]\b/)[0]
-    rescue StandardError => e
+    rescue StandardError
       puts "Must be a number between 1 and 9."
-      puts "\tError: #{e}"
       retry
     end
     input.to_i
   end
 
-  def validate_pos(choice)
-    row, col = @board.cords[choice]
+  def fetch_valid_choice
+    begin
+      choice = fetch_valid_int
+      valid_pos = fetch_valid_pos
+      raise StandardError unless valid_pos.include?(choice)
+    rescue StandardError
+      puts "That spot is already taken!"
+      retry
+    end
+    @board.cords[choice]
   end
 
   def ask
     @board.render
     puts "\nEnter the number of the position you'd like to play at>>"
-    validate_integer
+    fetch_valid_choice
   end
 
   def check_winner(row, col, player)
