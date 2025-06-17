@@ -5,8 +5,4 @@ class Player
   def initialize(symbol)
     @symbol = symbol
   end
-
-  def play_at(row, col)
-    [row, col, @symbol]
-  end
 end
