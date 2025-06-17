@@ -1,4 +1,5 @@
 # helper module for checking winning board states
+# credit to Hardwareguy (https://stackoverflow.com/a/1056352) for algorithms
 module Winning
   BOARD_SIZE = 3
 
