@@ -16,7 +16,7 @@ class Game
     @winner = nil
   end
 
-  def run
+  def play
     # main game loop
     until @winner || @move_count == 9
       # display the board
