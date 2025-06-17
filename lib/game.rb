@@ -22,11 +22,11 @@ class Game
       # display the board
       @board.render
       # ask the current_player for their move
-      choice = game.ask
-      # validate the move
-      #   - must be an integer
-      #   - must not be occupied
+      row, col = ask
+      # update board
+      @board.update(row, col, @current_player.symbol)
       # increment move_count by one
+      @move_count += 1
       # check for a winner when a min of 5 moves have been made
       # if a winner has been found, update game.winner and congratulate them!
       # if 9 moves have been made but there is no winner, the game is a draw
