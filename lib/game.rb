@@ -20,7 +20,7 @@ class Game
     # main game loop
     until game.winner
       # display the board
-      board.render
+      @board.render
       # ask the current_player for their move
       choice = game.ask
       # validate the move
@@ -65,7 +65,6 @@ class Game
   end
 
   def ask
-    @board.render
     puts "\nEnter the number of the position you'd like to play at>>"
     fetch_valid_choice
   end
